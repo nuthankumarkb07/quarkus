@@ -18,7 +18,7 @@ public class SimulatorVerticle extends AbstractVerticle {
     private final Random rand = new Random();
     private NetClient client = null;
     private NetSocket socket =null;
-    private static final int TCP_PORT = Integer.parseInt(System.getenv().getOrDefault("HTTP_PORT", "8080"));
+    private static final int TCP_PORT = Integer.parseInt(System.getenv().getOrDefault("HTTP_PORT", "9999"));
     @Override
     public void start(Promise<Void> startPromise) throws Exception {
         vertx.setPeriodic(1000, x -> {
