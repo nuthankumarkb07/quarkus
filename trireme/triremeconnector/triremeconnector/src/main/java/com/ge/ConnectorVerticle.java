@@ -20,7 +20,7 @@ public class ConnectorVerticle extends AbstractVerticle {
     private static NetServer server = null;
     @Override
     public void start(Promise<Void> startPromise) throws Exception {
-        System.out.println("starting connector");
+        logger.info("connector started");
         if(server==null){
         Vertx vertx = Vertx.vertx();
         server = vertx.createNetServer();
@@ -28,12 +28,12 @@ public class ConnectorVerticle extends AbstractVerticle {
         server.connectHandler(new Handler<NetSocket>() {
             @Override
             public void handle(NetSocket netSocket) {
-                System.out.println("Incoming connection!");
+                logger.info("Incoming connection!");
                 netSocket.handler(new Handler<Buffer>(){
                     @Override
                     public void handle(Buffer buffer) {
-                        System.out.println("Received data: " + buffer.length());
-                        System.out.println(buffer.getString(0, buffer.length()));
+                        logger.info("Received data: " + buffer.length());
+                        logger.info(buffer.getString(0, buffer.length()));
                     }
                 });
             }
