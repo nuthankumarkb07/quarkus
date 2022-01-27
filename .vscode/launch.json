@@ -6,16 +6,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Launch Main",
-            "request": "launch",
-            "mainClass": "com.ge.Main",
-            "projectName": "triremeconnector"
-        },
-        {
-            "type": "java",
             "name": "Launch triremeconnector",
             "request": "launch",
-            "mainClass": "com.ge.triremeconnector",
+            "mainClass": "com.ge.Main",
             "projectName": "triremeconnector"
         },
         {
