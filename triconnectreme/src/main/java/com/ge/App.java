@@ -10,9 +10,11 @@ import javax.enterprise.inject.spi.Bean;
 import javax.enterprise.inject.spi.BeanManager;
 import javax.enterprise.util.AnnotationLiteral;
 import javax.inject.Inject;
-
 import io.quarkus.runtime.ShutdownEvent;
+import io.quarkus.runtime.Startup;
 import io.quarkus.runtime.StartupEvent;
+
+@Startup
 @ApplicationScoped
 public class App {
     @Inject VertxBean vertx;
