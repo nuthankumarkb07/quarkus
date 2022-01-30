@@ -1,6 +1,7 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.project.sourcePaths": [
-        "trireme/triremeconnector/triremeconnector"
+        "trireme/triremeconnector/triremeconnector",
+        "simulator/tcpsimulator/SimulatorApp"
     ]
 }

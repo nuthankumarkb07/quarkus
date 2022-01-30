@@ -13,20 +13,16 @@ import javax.inject.Inject;
 import io.quarkus.runtime.ShutdownEvent;
 import io.quarkus.runtime.Startup;
 import io.quarkus.runtime.StartupEvent;
-
+@Any
 @Startup
 @ApplicationScoped
 public class App {
     @Inject VertxBean vertx;
     @Inject BeanManager beanManager;
+    @Inject BeanExplorer beanExplorer;
     void onStart(@Observes StartupEvent ev) {
         vertx.startVertx();
-        final String SPACE = " ";
-        final AtomicInteger counter = new AtomicInteger();
-        final Set<Bean<?>> beans = beanManager.getBeans(Object.class, new AnnotationLiteral<Any>() {});
-        for (final Bean<?> bean : beans) {
-            System.out.println(counter.getAndIncrement() + SPACE + bean.getBeanClass().getName());
-        }
+        beanExplorer.getbeans(beanManager);
         System.out.println("The application has started");
     }
     void onStop(@Observes ShutdownEvent ev) {
