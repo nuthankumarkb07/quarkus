@@ -1,5 +1,8 @@
 package com.ge;
 
+
+import java.security.Timestamp;
+
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import io.vertx.core.Vertx;
@@ -16,6 +19,7 @@ public class VertxBean {
     private static final Logger logger = LoggerFactory.getLogger(VertxBean.class);
     private static NetServer server = null;
     @Inject Vertx vertx;
+    @Inject Payload payload;
     public void startVertx(){
         server = vertx.createNetServer();
         server.connectHandler(new Handler<NetSocket>() {
@@ -25,18 +29,16 @@ public class VertxBean {
                 netSocket.handler(new Handler<Buffer>() {
                     @Override
                     public void handle(Buffer buffer) {
-                        logger.info("Received data: " + buffer.length());
-                        logger.info(buffer.getString(0, buffer.length()));
+                        payload.capture(buffer.toJson());
                     }
                 });
             }
         });
         server.listen(TCP_PORT);
-        //vertx.deployVerticle(myVerticle);
     }
     public void  stopVertx(){
         vertx.close();
-        System.out.println("Stop everything before we need to exit the applications");
+        logger.info("Stop everything before we need to exit the applications");
     }
 
 }
