@@ -12,7 +12,6 @@ public class PayloadHandler implements Handler<Buffer> {
 
     @Override
     public void handle(Buffer event) {
-        payload.receiveJsonData(event.toJson());
+        payload.receiveJsonData(event.toJsonObject());
     }
-
 }
