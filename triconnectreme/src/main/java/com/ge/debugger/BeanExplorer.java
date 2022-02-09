@@ -1,4 +1,4 @@
-package com.ge;
+package com.ge.debugger;
 
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
