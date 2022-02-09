@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "com.ge.App",
+            "projectName": "trireme-tcpconnector"
+        },
+        {
+            "type": "java",
             "name": "Launch triremeconnector",
             "request": "launch",
             "mainClass": "com.ge.Main",
