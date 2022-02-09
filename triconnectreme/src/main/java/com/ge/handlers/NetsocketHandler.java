@@ -1,12 +1,11 @@
 package com.ge.handlers;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-
+import javax.inject.Singleton;
 import io.vertx.core.Handler;
 import io.vertx.core.net.NetSocket;
 
-@ApplicationScoped
+@Singleton
 public class NetsocketHandler implements Handler<NetSocket> {
     @Inject PayloadHandler payloadHandler;
     @Override

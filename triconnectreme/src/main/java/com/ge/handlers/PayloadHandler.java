@@ -1,14 +1,11 @@
 package com.ge.handlers;
 
-import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
-
+import javax.inject.Singleton;
 import com.ge.helpers.Payload;
-
 import io.vertx.core.Handler;
 import io.vertx.core.buffer.Buffer;
-
-@ApplicationScoped
+@Singleton
 public class PayloadHandler implements Handler<Buffer> {
     @Inject
     Payload payload;
