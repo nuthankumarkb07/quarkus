@@ -13,20 +13,17 @@ import io.vertx.core.impl.logging.LoggerFactory;
 @ApplicationScoped
 public class Payload {
     private JsonObject receivedjsonobject;
-    private JsonObject sendingjsonobject;
     private static final Logger logger = LoggerFactory.getLogger(BeanExplorer.class);
 
-    public void capture(Object object) {
+    public void receiveJsonData(Object object) {
         try {
+            //Transform the object the way it is needed.
             this.receivedjsonobject = (JsonObject) object;
-            JsonObject result = this.receivedjsonobject;
-            result.put("receivedtimestamp", Time.from(Instant.now()).toString());
-            this.sendingjsonobject = result;
-            logger.info(sendingjsonobject.toString());
+            this.receivedjsonobject.put("receivedtimestamp", Time.from(Instant.now()).toString());
+            logger.info(this.receivedjsonobject.toString());
         } catch (Exception e) {
-            System.out.println("error");
+            System.out.println("error receiving data");
             e.printStackTrace();
         }
-
     }
 }
