@@ -6,7 +6,7 @@ docker network create client_server_network
 
 
 ## How to run TCP server on 9999
-cd triconnectreme
+cd trireme-connector
 
 ./mvnw compile quarkus:dev
 
@@ -16,13 +16,13 @@ docker network create client_server_network
 
 ## build docker 
 
-cd triconnectreme
+cd trireme-connector
 
 ./mvnw package
 
-docker build -f src/main/docker/Dockerfile.jvm -t quarkus/triconnectreme-jvm .
+docker build -f src/main/docker/Dockerfile.jvm -t quarkus/trireme-connector-jvm .
 
-docker run -d --name connector --network-alias connector --network client_server_network -it quarkus/triconnectreme-jvm
+docker run -d --name connector --network-alias connector --network client_server_network -it quarkus/trireme-connector-jvm
 
 ## Simulator
 

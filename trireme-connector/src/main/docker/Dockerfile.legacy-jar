@@ -7,18 +7,18 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.legacy-jar -t quarkus/triconnectreme-legacy-jar .
+# docker build -f src/main/docker/Dockerfile.legacy-jar -t quarkus/trireme-connector-legacy-jar .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/triconnectreme-legacy-jar
+# docker run -i --rm -p 8080:8080 quarkus/trireme-connector-legacy-jar
 #
 # If you want to include the debug port into your docker image
 # you will have to expose the debug port (default 5005) like this :  EXPOSE 8080 5005
 #
 # Then run the container using :
 #
-# docker run -i --rm -p 8080:8080 quarkus/triconnectreme-legacy-jar
+# docker run -i --rm -p 8080:8080 quarkus/trireme-connector-legacy-jar
 #
 ###
 FROM registry.access.redhat.com/ubi8/openjdk-17-runtime:1.10

@@ -1,7 +1,7 @@
 mvn io.quarkus.platform:quarkus-maven-plugin:2.6.2.Final:create -DprojectGroupId=com.ge   -DprojectArtifactId=tcpsimulator -DclassName="com.ge.tcpsimulator"  -Dpath="/simulate"
 mvn io.quarkus.platform:quarkus-maven-plugin:2.6.2.Final:create -DprojectGroupId=com.ge   -DprojectArtifactId=tcpconnector -DclassName="com.ge.tcpconnector"  -Dpath="/connector"
 mvn io.quarkus.platform:quarkus-maven-plugin:2.6.2.Final:create -DprojectGroupId=com.ge   -DprojectArtifactId=triremeconnector -DclassName="com.ge.triremeconnector"  -Dpath="/triremeconnector"
-mvn io.quarkus.platform:quarkus-maven-plugin:2.6.2.Final:create -DprojectGroupId=com.ge   -DprojectArtifactId=triconnectreme -DclassName="com.ge.triconnectreme"  -Dpath="/triconnectreme"
+mvn io.quarkus.platform:quarkus-maven-plugin:2.6.2.Final:create -DprojectGroupId=com.ge   -DprojectArtifactId=trireme-connector -DclassName="com.ge.trireme-connector"  -Dpath="/trireme-connector"
 
 mvn io.quarkus.platform:quarkus-maven-plugin:2.6.2.Final:create -DprojectGroupId=com.ge   -DprojectArtifactId=trireme-tcpconnector -DclassName="com.ge.triremeconnector"  -Dpath="/triremeconnector"
 

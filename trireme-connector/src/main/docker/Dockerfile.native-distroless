@@ -7,11 +7,11 @@
 #
 # Then, build the image with:
 #
-# docker build -f src/main/docker/Dockerfile.native-distroless -t quarkus/triconnectreme .
+# docker build -f src/main/docker/Dockerfile.native-distroless -t quarkus/trireme-connector .
 #
 # Then run the container using:
 #
-# docker run -i --rm -p 8080:8080 quarkus/triconnectreme
+# docker run -i --rm -p 8080:8080 quarkus/trireme-connector
 #
 ###
 FROM quay.io/quarkus/quarkus-distroless-image:1.0
