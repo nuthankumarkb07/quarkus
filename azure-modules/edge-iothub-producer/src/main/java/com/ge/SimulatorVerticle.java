@@ -4,8 +4,14 @@ import io.quarkus.runtime.Quarkus;
 import io.smallrye.mutiny.vertx.core.AbstractVerticle;
 import com.microsoft.azure.iothub.DeviceClient;
 import com.microsoft.azure.iothub.IotHubClientProtocol;
+import com.microsoft.azure.iothub.Message;
+import com.microsoft.azure.iothub.IotHubStatusCode;
+import com.microsoft.azure.iothub.IotHubEventCallback;
+import com.microsoft.azure.iothub.IotHubMessageResult;
+import com.google.gson.Gson;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Random;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
 
@@ -22,7 +28,24 @@ public class SimulatorVerticle extends AbstractVerticle {
     @Override
     public void start(Promise<Void> startPromise) throws IOException, URISyntaxException, Exception{
         vertx.setPeriodic(1000, x -> {
-
+            try {
+                client = new DeviceClient(connString, protocol);
+                client.open();
+            } catch (IOException | URISyntaxException e) {
+                e.printStackTrace();
+            }
+          
+            MessageSender sender = new MessageSender();
+          
+            ExecutorService executor = Executors.newFixedThreadPool(1);
+            executor.execute(sender);
+            Quarkus.waitForExit();
+            executor.shutdownNow();
+            try {
+                client.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         });
     }
 
