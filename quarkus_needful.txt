@@ -5,4 +5,7 @@ mvn io.quarkus.platform:quarkus-maven-plugin:2.6.2.Final:create -DprojectGroupId
 
 mvn io.quarkus.platform:quarkus-maven-plugin:2.6.2.Final:create -DprojectGroupId=com.ge   -DprojectArtifactId=trireme-tcpconnector -DclassName="com.ge.triremeconnector"  -Dpath="/triremeconnector"
 
+
+mvn io.quarkus.platform:quarkus-maven-plugin:2.6.2.Final:create -DprojectGroupId=com.ge   -DprojectArtifactId=generic -DclassName="com.ge.receiver"  -Dpath="/receiver"
+
 lsof -i -P | grep LISTEN | grep 8080
