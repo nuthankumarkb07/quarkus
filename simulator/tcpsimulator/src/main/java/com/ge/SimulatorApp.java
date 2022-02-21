@@ -13,12 +13,15 @@ import io.vertx.core.Vertx;
 @ApplicationScoped
 public class SimulatorApp {
     private static final Logger logger = LoggerFactory.getLogger(SimulatorApp.class);
-    
-    void onStart(@Observes StartupEvent ev) {
+    public static void main(String[] args) throws Exception {
         Vertx vertx =Vertx.vertx();
         vertx.deployVerticle(new SimulatorVerticle());
     }
-    void onStop(@Observes ShutdownEvent ev) {
-        logger.info("The Simulator is stopping...");
-    }
+    // void onStart(@Observes StartupEvent ev) {
+    //     Vertx vertx =Vertx.vertx();
+    //     vertx.deployVerticle(new SimulatorVerticle());
+    // }
+    // void onStop(@Observes ShutdownEvent ev) {
+    //     logger.info("The Simulator is stopping...");
+    // }
 }

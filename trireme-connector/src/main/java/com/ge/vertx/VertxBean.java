@@ -11,19 +11,20 @@ import io.vertx.core.impl.logging.Logger;
 import io.vertx.core.impl.logging.LoggerFactory;
 
 @ApplicationScoped
-public class VertxBean {
+public class VertxBean<T> {
     private static final int TCP_PORT = Integer.parseInt(System.getenv().getOrDefault("TCP_PORT", "9999"));
     private static final Logger logger = LoggerFactory.getLogger(VertxBean.class);
     private static NetServer server = null;
     @Inject
     Vertx vertx;
     @Inject
-    NetsocketHandler netsocketHandler;
+    NetsocketHandler<T> netsocketHandler;
 
     public void startVertx() {
         server = vertx.createNetServer();
         server.connectHandler(netsocketHandler);
         server.listen(TCP_PORT);
+        vertx.deployVerticle(new receiverVerticle());
     }
 
     public void stopVertx() {

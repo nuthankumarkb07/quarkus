@@ -24,7 +24,7 @@ public class SimulatorVerticle extends AbstractVerticle {
         vertx.setPeriodic(1000, x -> {
             if (client == null) {
             io.vertx.core.net.NetClient tcpClient= vertx.createNetClient().getDelegate();
-            client = tcpClient.connect(TCP_PORT, "connector", "simulator",
+            client = tcpClient.connect(TCP_PORT, "localhost", "simulator",
                     new Handler<AsyncResult<NetSocket>>() {
                         @Override
                         public void handle(AsyncResult<NetSocket> result) {

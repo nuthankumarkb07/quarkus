@@ -9,7 +9,21 @@
             "name": "Launch App",
             "request": "launch",
             "mainClass": "com.ge.App",
+            "projectName": "trireme-connector"
+        },
+        {
+            "type": "java",
+            "name": "Launch App",
+            "request": "launch",
+            "mainClass": "com.ge.App",
             "projectName": "trireme-tcpconnector"
+        },
+        {
+            "type": "java",
+            "name": "Remote Debug (Attach Quarkus)",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": 5005
         },
         {
             "type": "java",

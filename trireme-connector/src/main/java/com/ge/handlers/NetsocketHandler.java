@@ -6,8 +6,8 @@ import io.vertx.core.Handler;
 import io.vertx.core.net.NetSocket;
 
 @Singleton
-public class NetsocketHandler implements Handler<NetSocket> {
-    @Inject PayloadHandler payloadHandler;
+public class NetsocketHandler<T> implements Handler<NetSocket> {
+    @Inject PayloadHandler<T> payloadHandler;
     @Override
     public void handle(NetSocket event) {
         event.handler(payloadHandler);
